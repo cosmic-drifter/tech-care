@@ -19,6 +19,22 @@ export const getPatients = () => {
     }
 };
 
+export const getSearchedPatients = (searchParam: string) => {
+    try {
+        const result = getPatients();
+        if (result) {
+            const matchedResult = result.filter((patient: any) => {
+                // Use return to indicate whether the patient includes the searchParam
+                return patient.name.toLowerCase().includes(searchParam.toLowerCase());
+            });
+            return matchedResult
+            // setPatientsData(matchedResult)
+        }
+    } catch (e) {
+        console.error(e);
+    }
+};
+
 /**
  * Fetches the details of a specific patient by name.
  * @param {string} pName - The name of the patient to fetch.

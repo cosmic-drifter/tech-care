@@ -3,6 +3,7 @@ import './sideBar.css';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { getPatients } from '../../lib/actions';
 import { FaEllipsis } from "react-icons/fa6";
+import { getSearchedPatients } from '../../lib/actions';
 
 type Prop = {
   setSelectedPatient: React.Dispatch<React.SetStateAction<string>>;
@@ -23,17 +24,23 @@ const SideBar: React.FC<Prop> = ({setSelectedPatient, selectedPatient}) => {
         fetchPatients(); // Call the fetch function
     }, [selectedPatient]); // Ensure this runs once when the components mounts
 
-    // JSX structure for SideBar component
-    const data:any = {
-      'data': patientsData,
-      'filename': 'patients-data'
+    const handleSearch = (e: any) => {
+      const search = e.target.value
+      const result = getSearchedPatients(search)
+      setPatientsData(result)
     }
-    
+
+    // JSX structure for SideBar component
     return (
         <div className='side-bar'>
             <div className='search-div'>
                 <h1>Patients</h1>
-                <FaMagnifyingGlass size={15} />
+                <div className='search-wrpr'>
+                  <input type='text' className='search-input-box' onChange={(e) => handleSearch(e) }/>
+                  <div className='magnifying-glass'>
+                    <FaMagnifyingGlass size={15} />
+                  </div>
+                </div>
             </div>
             <ul className='results-container'>
                 {patientsData.map((patient: any) => (

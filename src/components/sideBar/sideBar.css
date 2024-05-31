@@ -5,9 +5,26 @@
 }
 .search-div{
     display: flex;
-    align-items: center;
-    justify-content: space-between;  
+    gap: 20px;
+    align-items: center; 
     padding: 20px; 
+}
+.search-wrpr{
+    display: flex;
+    padding: 3px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px gray;
+    background-color: #FFFFFF;
+}
+.search-input-box{
+    width: 100%;
+    outline: none;
+    border: none;
+}
+.magnifying-glass{
+    position: relative;
+    margin-right: 10px;
 }
 .results-container{
     display: flex;
