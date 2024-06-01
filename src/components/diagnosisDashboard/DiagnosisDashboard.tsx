@@ -164,7 +164,7 @@ const DiagnosisDashboard = (paraName: Props) => {
             />
             <div>
               <p className='txt-ln1'>Temperature</p>
-              <p className='txt-ln2'>{clickedDateDiagnosis.temperature && `${clickedDateDiagnosis.temperature}°C`}</p>
+              <p className='txt-ln2'>{clickedDateDiagnosis.temperature && `${clickedDateDiagnosis.temperature}°F`}</p>
             </div>
               <p className='txt-ln3'>{clickedDateDiagnosis.temperature_level && clickedDateDiagnosis.temperature_level}</p>
           </div>
